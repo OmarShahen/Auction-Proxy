@@ -3,6 +3,7 @@ const config = require('./config/config')
 const morgan = require('morgan')
 const cors = require('cors')
 const { createProxyMiddleware } = require('http-proxy-middleware')
+const authService = require('./services/auth')
 const itemService = require('./services/item')
 
 const app = express()
@@ -14,6 +15,7 @@ app.use(cors())
 
 // services
 
+authService(app)
 itemService(app)
 
 app.listen(config.PORT, () => console.log(`server started on port ${config.PORT} [${config.SERVICE}]`))

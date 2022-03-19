@@ -6,6 +6,12 @@ module.exports = {
         {
             SERVICE: 'item-service',
             API_SERVICE_URL: 'http://159.223.99.196',
+            PORT: 3002
+        },
+        {
+            SERVICE: 'auth-service',
+            API_SERVICE_URL: 'http://159.223.99.196',
+            PORT: 3001
         }
     ]
 }

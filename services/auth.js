@@ -2,10 +2,9 @@ const config = require('../config/config')
 const { createProxyMiddleware } = require('http-proxy-middleware')
 const serviceFinder = require('./service-finder')
 
+const auth = (app) => {
 
-const items = (app) => {
-
-    const service = serviceFinder('item-service')
+    const service = serviceFinder('auth-service')
 
     const options = {
         target: `${service.API_SERVICE_URL}:${service.PORT}`,
@@ -15,4 +14,4 @@ const items = (app) => {
     app.use(`/api/${service.SERVICE}`, createProxyMiddleware(options))
 }
 
-module.exports = items
+module.exports = auth
